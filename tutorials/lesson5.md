@@ -47,7 +47,7 @@ Cookie: qwerty=219ffwef9w0f; Domain=somecompany.com; Path=/; Expires=Wed, 30 Aug
 In our case, we have the server put the JWT in a cookie. This way, the browser will always send the server the cookie, and it can use this
 JWT to prove that the user has logged in.
 
-To use cookies, we need to setup the cookie parsing middleware in `server/server.js`:
+To use cookies, we need to setup the cookie parsing middleware in `server/server.js`.  You should already have this code in your "server.js" file, but now you know what it is doing.
 
 ```
 var cookieParser = require("cookie-parser");
