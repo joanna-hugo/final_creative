@@ -7,7 +7,6 @@ To get this code running, you'll need to clone this repository.
 After you do this, initialize Node and install some packages:
 
 ```
-nvm use stable
 cd user-authentication
 npm init
 npm install express mongoose jsonwebtoken cookie-parser
