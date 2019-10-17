@@ -178,12 +178,26 @@ cd server
 node server.js
 ```
 
-Then we can use curl to test it:
+Then we can use curl to test the post route (adding a user):
 
 ```
 curl -X POST -d '{"username":"test","password":"badpassword"}' -H "Content-Type: application/json" localhost:3000/api/users
 ```
 
-Now use robomongo and you can see the salted and hashed password in the database:
-
-![salted and hashed password in Mongo](/screenshots/robo1.png)
+Now use mongo to see what was saved for this user
+```
+> show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+tickets   0.000GB
+> use tickets
+switched to db tickets
+> show collections
+tickets
+users
+> db.getCollection("users").find()
+{ "_id" : ObjectId("5da8b950aed6503150d6c2ae"), "username" : "test", "password" : "$2b$10$I/DZ7iCaASYvX3MvbHAIHuVCAeacoau0nd3Yfg.vfsCNDPwRUIGoG", "__v" : 0 }
+> 
+```
+Notice that the password has been hashed.
