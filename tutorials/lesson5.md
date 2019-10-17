@@ -222,7 +222,7 @@ and sens back a 200 OK.
 
 ## Get logged in user
 
-We will eventually also need functionality fo a user to check if they are logged in. They can call this endpoint to get their user record. This will only succeed if they are logged in.
+We will eventually also need functionality for a user to check if they are logged in. They can call this endpoint to get their user record. This will only succeed if they are logged in.
 
 ```
 // Get current user if logged in.
