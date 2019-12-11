@@ -1,65 +1,37 @@
 <!DOCTYPE html>
+<!-- http://52.25.128.9:8080/ -->
 <html>
 
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css" />
-  <title>Mental Health Checkin</title>
-  <!--  http://52.25.128.9:3000/index.html -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <title>Mental Health Challenge</title>
 </head>
 
 <body>
-  <div id="app">
-    <div class="header">
-      <div class="col">
-        <h1>Daily Check In</h1>
-        <p v-if="user">Welcome {{user.username}}<br><a href="#" @click="logout">Logout</a></p>
-        <p v-else><a href="#" @click="toggleForm">Register or Login</a></p>
-      </div>
-      <div class = "col">
-        <p>Mental Health is a journey! Check in daily to track your actions 
-          through a week towards wellness! Check back in on Sunday to see how much you've done!</p>
-      </div>
+  <div class="header">
+    <div class="logo">
+      <img src="images/heart-shape-outline.png">
       
     </div>
-
-  <div class="content">
-    <transition v-if="showForm" name="modal">
-      <div class="modal-mask">
-        <div class="modal-wrapper">
-          <div class="modal-container">
-
-            <div class="modal-header">
-              <h1 class="modal-title">Register or Login</h1>
-            </div>
-            <div class="modal-body">
-              <p v-if="error" class="error">{{error}}</p>
-              <label>Username</label>
-              <br>
-              <input v-model="username">
-              <br>
-              <label>Password</label>
-              <br>
-              <input type="password" v-model="password">
-            </div>
-            <div class="modal-footer">
-              <button @click="register" type="button">Register</button>
-              <button @click="login" type="button" class="other">Login</button>
-              <button @click="toggleForm" type="button" class="close">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </transition>
+    <div class="title">
+      <h2>CS 260</h2>
+      <h1>Felsted Mental Health Challenge</h1>
+      <p>Take your first step today!</p>
     
-      <div class = "center big">
+    </div>
+  </div>
+  
+  <div id="app" class="content">
+    <div class = "center big">
       {{ this.todaysPoints }} /20
       <!--{{ this.grade }}-->
     </div>
-        <!-- Vue graph https://codepen.io/dimonline/pen/vbvyXa -->
-        <!-- Vue date picker https://github.com/mariomka/vue-datetime -->
-      <div class="row">
+    <!-- Vue graph https://codepen.io/dimonline/pen/vbvyXa -->
+    <!-- Vue date picker https://github.com/mariomka/vue-datetime -->
+    
+    <div class="row">
         <div class="col-sm-4">
           <label class="container" >Water Goal
             <input type="checkbox"  v-on:click="drinkWater()" id= "drinkWater">
@@ -102,15 +74,9 @@
             <span class="checkmark"></span>
           </label>
         </div>
-        <div class="col-sm-4">
-          <label class="container" >Medications on Time
-            <input type="checkbox"  v-on:click="meds()" id="meds">
-            <span class="checkmark"></span>
-          </label>
-        </div>
       </div>
-      <!--<div class="row">-->
-        <select v-model="day" v-on:click="clearClicked()">
+      <div class="row">
+        <select>
           <option value="m">Monday</option>
           <option value="t">Tuesday</option>
           <option value="w">Wednesday</option>
@@ -119,23 +85,22 @@
           <option value="sat">Saturday</option>
           <option value="sun">Sunday</option>
         </select>
-      <!--</div>-->
-      
-      <br><br><br>
-    
-      <h2>Your Weekly Points {{ weekly_points }}</h2>
-      <!--<h2>Worlwide Lifetime Points {{ this.weekly_points }}</h2>-->
-      <h3 v-if="user">Your daily points have been recorded, {{user.username}}</h3>
-      <h3 v-else>Your daily points will not be recorded until logged in</h3>
-    
+      </div>
   </div>
-    
-    
-    
+  
+  <div class="footer">
+    <a href="admin.html">Admin</a>
+    <a href="https://github.com/BYUCS260/midterm-2-joanna-hugo">Repo</a>
+    <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
-  <script src="/script.js"></script>
+  <script src="daily.js"></script>
+  <link rel="stylesheet" href="vue-datetime.css"></link>
+  <script src="vue.js"></script>
+  <script src="luxon.js"></script>
+  <script src="weekstart.js"></script>
+  <script src="vue-datetime.js"></script>
 </body>
 
 </html>
